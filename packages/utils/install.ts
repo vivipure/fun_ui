@@ -12,10 +12,10 @@ export const withInstall = <T, E extends Record<string, any>>(
   };
   if (extra) {
     for (const [key, comp] of Object.entries(extra)) {
-      (<SFCWithInstall<T>>main)[key] = comp;
+      (main as SFCWithInstall<T>)[key] = comp;
     }
   }
   return main as SFCWithInstall<T> & E;
 };
 
-export type SFCWithInstall<T> = T & Plugin;
+export type SFCWithInstall<T> = T & Plugin & { [key: string]: any };

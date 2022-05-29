@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Button from "../packages/components/Button/Button.vue";
 import FunInput from "../packages/components/input/Input.vue";
+import FunVideo from "../packages/components/Video/index.vue";
 
 import { throttle } from "../packages/directives/index";
 
@@ -22,7 +23,7 @@ const inputChange = (value: string) => {
 </script>
 
 <template>
-  <h3>按钮组件</h3>
+  <!-- <h3>按钮组件</h3>
   <div>
     <Button v-throttle.300="(e: Event) => clickHandle(e)">中文</Button>
     <Button type="secondary">中文1</Button>
@@ -33,7 +34,14 @@ const inputChange = (value: string) => {
   <div>
     <FunInput v-model="inputValue" @input="inputChange" />
     <FunInput width="40px" v-model="inputValue" @input="inputChange" />
-  </div>
+  </div> -->
+  <FunVideo></FunVideo>
 </template>
 
-<style></style>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+</style>

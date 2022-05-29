@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.33/dist/vue.global.prod.js"></script>
+    <script src="../../dist/funui.js.iife.js"></script>
+    <link rel="stylesheet" href="../../dist/style.css">
+    <style>
+        #app {
+            width: 100vw;
+            height: 100vh;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <fun-video src="https://www.runoob.com/try/demo_source/movie.mp4"></fun-video>    
+        <div>
+            <fun-button>1111</fun-button>
+        </div>
+    </div>
+    <script>
+        const {FunVideo, FunButton} = window.funui
+        const app = Vue.createApp({
+            components: {
+                FunVideo: FunVideo,
+                FunButton: FunButton,
+            },
+            data() {
+                return {
+                    state: 1
+                }
+            },
+            created() {
+                console.log(this, '来到这')
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

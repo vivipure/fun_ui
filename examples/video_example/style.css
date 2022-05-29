@@ -1,0 +1,222 @@
+.fun-video {
+    width: 90%;
+    background: #000;
+    max-width: 1200px;
+    position: relative
+}
+
+.fun-video.pause video-control-container {
+    display: block
+}
+
+.fun-video video {
+    width: 100%
+}
+
+.fun-video:hover .video-control-container {
+    display: block
+}
+
+.fun-video .video-control-container {
+    display: none;
+    display: block;
+    background: rgba(17, 17, 17, .3294117647);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100
+}
+
+.fun-video.theater {
+    max-width: initial;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.fun-video.theater video {
+    height: 100%;
+    width: auto
+}
+
+.fun-video.fullscreen {
+    width: 100vw;
+    height: 100vh
+}
+
+.time-line-container {
+    height: 10px;
+    display: flex;
+    align-items: center
+}
+
+.time-line-container .time-line {
+    width: 100%;
+    background: rgba(255, 255, 255, .2);
+    cursor: pointer;
+    height: 5px;
+    position: relative
+}
+
+.time-line-container .time-line:before {
+    content: "";
+    width: var(--percent);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    z-index: 2
+}
+
+.time-line-container .time-line:after {
+    content: "";
+    width: var(--moveover);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #fff
+}
+
+.time-line-container .time-circle {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    z-index: 1;
+    border-radius: 50%;
+    background: #fff
+}
+
+.controls {
+    color: #fff;
+    display: flex;
+    justify-content: space-between
+}
+
+.controls .left {
+    display: flex;
+    align-items: center;
+    flex: 1
+}
+
+.controls .control-right {
+    flex-shrink: 0;
+    display: flex
+}
+
+.icon {
+    width: 48px;
+    padding: 0 2px
+}
+
+.volume-container {
+    display: flex;
+    align-items: center
+}
+
+.volume-container .volume-slider {
+    cursor: pointer;
+    position: relative
+}
+
+.volume-container .volume-slider:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--percent);
+    height: 100%;
+    border-radius: inherit;
+    background: #fff;
+    border-radius: 10px
+}
+
+.volume-container input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 120px
+}
+
+.volume-container input[type=range]:focus {
+    outline: none
+}
+
+.volume-container input[type=range]::-webkit-slider-runnable-track {
+    background-color: #fff3;
+    border-radius: 10px;
+    height: 10px
+}
+
+.volume-container input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    background-color: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%
+}
+
+.volume-container input[type=range]::-moz-range-track {
+    background-color: #fff;
+    border-radius: .5rem;
+    height: .5rem
+}
+
+button {
+    background: #228af2;
+    outline: none;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    border-radius: 2px;
+    color: #fff;
+    transition: transform .3s
+}
+
+button>span {
+    display: inline-flex;
+    align-items: center
+}
+
+button:hover {
+    background: rgba(34, 138, 242, .7)
+}
+
+button:active {
+    transform: scale(1.1)
+}
+
+button+button {
+    margin-left: 12px
+}
+
+button span.expand {
+    letter-spacing: .3em;
+    margin-right: -.3em
+}
+
+button.fun-btn-warning {
+    border-color: #ffe60a;
+    background: #fff;
+    color: #ffe60a
+}
+
+button.fun-btn-danger {
+    border-color: red;
+    background: red;
+    color: #fff
+}
+
+button.fun-btn-secondary {
+    border-color: #111;
+    background: #fff;
+    color: #111
+}

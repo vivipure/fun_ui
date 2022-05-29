@@ -1,13 +1,18 @@
 <template>
   <button :class="buttonClass" @click="clickHandle">
-    <span v-if="$slots.default" :class="shouldAddSpace ? 'expand' : ''">
-      <slot></slot>
+    <span :class="shouldAddSpace ? 'expand' : ''">
+      <slot />
     </span>
   </button>
 </template>
 
 <script setup lang="ts">
-import { useSlots, computed, Text } from "vue";
+import { useSlots, computed,  } from "vue";
+defineOptions({
+  name: "FunButton",
+});
+
+const slots = useSlots();
 
 interface ButtonProps {
   type?: "primary" | "secondary" | "warning" | "danger";
@@ -23,7 +28,7 @@ const emit = defineEmits<{
   (name: "click", event: Event): void;
 }>();
 
-const slots = useSlots();
+
 
 const buttonClass = computed<string[]>(() => {
   const typeClassName = `fun-btn-${props.type}`;
@@ -49,9 +54,7 @@ const clickHandle = (e: Event) => {
   emit("click", e);
 };
 
-defineOptions({
-  name: "FunButton",
-});
+
 </script>
 
 <style src="./style.scss" scoped></style>

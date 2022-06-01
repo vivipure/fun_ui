@@ -4,4 +4,4 @@ Vue 3 + TypeScript + Vite
 
 
 ## TODO
-- [] PDFViewer support resize render
+- [ ] PDFViewer support resize render

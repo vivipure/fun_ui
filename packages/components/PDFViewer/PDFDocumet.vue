@@ -18,20 +18,19 @@ interface EmitsInterface {
 }
 const props = defineProps<PropsInterface>()
 const emits = defineEmits<EmitsInterface>()
+
 const pdfLoader = new PDFLoader()
 const pdfLoaded = ref<boolean>(false)
 
+provide('pdfLoader', pdfLoader)
 
 
 onMounted(async () => {
     await pdfLoader.loadDocument(props.url)
     pdfLoaded.value = true
     emits('loaded', pdfLoader.pdfDOC?.numPages as number)
-
-
 })
 
-provide('pdfLoader', pdfLoader)
 
 
 

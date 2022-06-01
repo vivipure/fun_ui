@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.33/dist/vue.global.prod.js"></script>
+    <script src="../../dist/funui.js.iife.js"></script>
+    <link rel="stylesheet" href="../../dist/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <span>pages {{psdPageNums}}</span>
+
+        <pdf-document :url="psdUrl" @loaded="pdfLoad">
+            <pdf-page v-for="n in psdPageNums" :key="n" :page="n"></pdf-page>
+        </pdf-document>
+    </div>
+    <script>
+        const {
+            PDFDocument,
+            PDFPage
+        } = window.funui
+        
+        console.log(window.funui)
+        const app = Vue.createApp({
+            components: {
+                PdfDocument: PDFDocument,
+                PdfPage: PDFPage,
+            },
+            data() {
+                return {
+                    psdPageNums: 0,
+                    psdUrl: `./demo.pdf`
+                }
+            },
+            methods: {
+                pdfLoad(page) {
+                    this.psdPageNums = page
+                }
+            },
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

@@ -16,6 +16,7 @@ interface PropsInterface {
 const props = withDefaults(defineProps<PropsInterface>(), {
     page: 1
 })
+
 const canvasRef = ref<HTMLCanvasElement>()
 const pdfLoader = inject('pdfLoader') as PDFLoader
 

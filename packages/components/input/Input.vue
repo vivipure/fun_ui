@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "@vue/reactivity";
-import { watch, ref } from "vue";
+import { watch, ref, StyleValue, reactive } from "vue";
 
 defineOptions({
   name: "FunInput",
@@ -39,23 +39,13 @@ const inputHandle = (e: Event) => {
   emit("input", (e.target as HTMLInputElement).value);
 };
 
-const inputStyle = computed(() => {
-  const style: any = {};
-  if (props.width) {
-    style.width = props.width;
-  }
-  return style;
+const inputStyle = reactive({
+  width: props.width
 });
 </script>
 <template>
   <div class="fun-input">
-    <input
-      v-model="inputValue"
-      type="text"
-      :style="inputStyle"
-      @change="changeHandle"
-      @input="inputHandle"
-    />
+    <input v-model="inputValue" type="text" :style="inputStyle" @change="changeHandle" @input="inputHandle" />
   </div>
 </template>
 

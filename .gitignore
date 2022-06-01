@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+thirty_party
 
 # Editor directories and files
 .vscode/*

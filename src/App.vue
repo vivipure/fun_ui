@@ -1,41 +1,19 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Button from "../packages/components/Button/Button.vue";
-import FunInput from "../packages/components/input/Input.vue";
-import FunVideo from "../packages/components/Video/index.vue";
+import { ref } from 'vue';
+import { PDFDocument, PDFPage } from '../packages/components/PDFViewer/index'
+const psdUrl = `https://inficloud.ideamake.cn/data_inficloud/upload_file_prod/v6sbr_beijingaerle.pdf`
+const psdPageNums = ref<Number>(0)
 
-import { throttle } from "../packages/directives/index";
-
-const inputValue = ref<string>("");
-
-
-const clickHandle = (e: Event) => {
-  console.log(111, e);
-};
-
-defineOptions({
-  directives: { throttle },
-});
-
-const inputChange = (value: string) => {
-  console.log(inputValue.value)
-};
+const pdfLoad = (page: number) => {
+  console.log('加载完成了', page)
+  psdPageNums.value = page
+}
 </script>
 
 <template>
-  <!-- <h3>按钮组件</h3>
-  <div>
-    <Button v-throttle.300="(e: Event) => clickHandle(e)">中文</Button>
-    <Button type="secondary">中文1</Button>
-    <Button type="danger">新增同步操作</Button>
-    <Button type="warning">新增同步操作</Button>
-  </div>
-  <h3>输入框</h3>
-  <div>
-    <FunInput v-model="inputValue" @input="inputChange" />
-    <FunInput width="40px" v-model="inputValue" @input="inputChange" />
-  </div> -->
-  <FunVideo></FunVideo>
+  <PDFDocument :url="psdUrl" @loaded="pdfLoad">
+    <PDFPage v-for="(n) in psdPageNums" :key="n" :page="n"></PDFPage>
+  </PDFDocument>
 </template>
 
 <style>

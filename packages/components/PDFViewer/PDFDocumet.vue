@@ -1,5 +1,5 @@
 <template>
-    <div class="pdf-docuemt">
+    <div class="pdf-docuemt" ref="wrapperRef">
         <slot v-if="pdfLoaded"></slot>
     </div>
 </template>
@@ -21,12 +21,13 @@ const emits = defineEmits<EmitsInterface>()
 
 const pdfLoader = new PDFLoader()
 const pdfLoaded = ref<boolean>(false)
+const wrapperRef = ref<HTMLDivElement>()
 
 provide('pdfLoader', pdfLoader)
 
 
 onMounted(async () => {
-    await pdfLoader.loadDocument(props.url)
+    await pdfLoader.loadDocument(props.url, wrapperRef.value as HTMLDivElement)
     pdfLoaded.value = true
     emits('loaded', pdfLoader.pdfDOC?.numPages as number)
 })

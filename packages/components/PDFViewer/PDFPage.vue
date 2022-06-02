@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
 import { PDFLoader } from './pdf';
 defineOptions({
     name: "PSDPage",
@@ -19,8 +19,23 @@ const props = withDefaults(defineProps<PropsInterface>(), {
 
 const canvasRef = ref<HTMLCanvasElement>()
 const pdfLoader = inject('pdfLoader') as PDFLoader
+const collectRender = inject('collectRender') as Function
+const clearRender = inject('clearRender') as Function
+
+
+const render = () => {
+    pdfLoader.loadPage(props.page, canvasRef.value as HTMLCanvasElement)
+
+}
 
 onMounted(() => {
+    render()
+    collectRender(render)
+})
+onUnmounted(() => {
+    clearRender(render)
+})
+watch(() => props.page, () => {
     pdfLoader.loadPage(props.page, canvasRef.value as HTMLCanvasElement)
 })
 

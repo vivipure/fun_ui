@@ -12,7 +12,7 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "types": ["unplugin-vue-define-options"],
+    "types": ["unplugin-vue-define-options","."],
   },
   "include": ["packages","src"],
   "references": [{ "path": "./tsconfig.node.json" }]

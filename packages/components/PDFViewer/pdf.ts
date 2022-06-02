@@ -27,19 +27,28 @@ export class PDFLoader {
     }
   }
 
+  updateWrapper(wrapper?: HTMLDivElement) {
+    if (wrapper) {
+      this.wrapperWidth = wrapper.clientWidth;
+    }
+  }
+
   async loadPage(page = 1, el: HTMLCanvasElement) {
     const pdfPage = (await this.pdfDOC?.getPage(page)) as PDFPageProxy;
     let viewport = pdfPage.getViewport({ scale: 1 });
-    if (this.wrapperWidth) {
-    }
+
     const scale = this.wrapperWidth ? this.wrapperWidth / viewport.width : 1;
     viewport = pdfPage.getViewport({ scale });
-
     el.width = viewport.width;
     el.height = viewport.height;
+
     pdfPage.render({
       canvasContext: el.getContext("2d") as Object,
       viewport: viewport,
     });
+  }
+
+  destory() {
+    this.pdfDOC?.destroy();
   }
 }

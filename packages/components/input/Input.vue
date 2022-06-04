@@ -49,15 +49,18 @@ const inputStyle = reactive({
   </div>
 </template>
 
-<style scoped lang="scss">
-input {
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #d2d2d2;
-  color: #515151;
-  height: 32px;
-  line-height: 40px;
-  padding: 0 15px;
-  width: 100%;
+<style  lang="scss">
+.fun-input {
+  input {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #d2d2d2;
+    color: #515151;
+    height: 32px;
+    line-height: 40px;
+    padding: 0 15px;
+    width: 100%;
+  }
+
 }
 </style>

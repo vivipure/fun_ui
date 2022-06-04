@@ -1,4 +1,4 @@
-button {
+.fun-button {
   background: $primary_color;
   outline: none;
   text-decoration: none;
@@ -12,9 +12,6 @@ button {
   }
   &:hover {
       background: $primary_color_alpha;
-  }
-  &:active {
-    transform: scale(1.1);
   }
   transition: transform .3s;
 

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSlots, computed,  } from "vue";
+import { useSlots, computed, } from "vue";
 defineOptions({
   name: "FunButton",
 });
@@ -30,10 +30,10 @@ const emit = defineEmits<{
 
 
 
-const buttonClass = computed<string[]>(() => {
-  const typeClassName = `fun-btn-${props.type}`;
+const buttonClass = computed<string>(() => {
+  const typeClassName = `fun-btn-${props.type} fun-button`;
 
-  return [typeClassName];
+  return typeClassName;
 });
 
 const shouldAddSpace = computed<boolean>(() => {
@@ -57,4 +57,5 @@ const clickHandle = (e: Event) => {
 
 </script>
 
-<style src="./style.scss" scoped></style>
+<style src="./style.scss">
+</style>

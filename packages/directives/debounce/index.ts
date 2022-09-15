@@ -31,7 +31,7 @@ function getParamsFromBind(
 }
 
 /**
- *
+ *  防抖指令
  * @example  v-debounce="() => {}"
  * @example  v-debounce.immediate="() => {}"
  * @example  v-debounce:click.immediate.1000="() => {}"

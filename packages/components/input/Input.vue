@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
-import { watch, ref, StyleValue, reactive } from "vue";
+import { watch, ref, reactive } from "vue";
 
 defineOptions({
   name: "FunInput",
@@ -61,6 +60,5 @@ const inputStyle = reactive({
     padding: 0 15px;
     width: 100%;
   }
-
 }
 </style>

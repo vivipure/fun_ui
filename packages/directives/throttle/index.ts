@@ -1,5 +1,11 @@
 import type { DirectiveBinding, ObjectDirective } from "vue";
 
+/**
+ * 节流指令
+ * @example v-throttle="() => {}"
+ * @example v-throttle.2000="() => {}"
+ * 
+ * */ 
 export default {
   beforeMount(
     el: HTMLElement & {

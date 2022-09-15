@@ -22,16 +22,13 @@
 <body>
     <div id="app">
         <fun-video src="https://www.runoob.com/try/demo_source/movie.mp4"></fun-video>    
-        <div>
-            <fun-button>1111</fun-button>
-        </div>
+      
     </div>
     <script>
-        const {FunVideo, FunButton} = window.funui
+        const {FunVideo, } = window.funui
         const app = Vue.createApp({
             components: {
                 FunVideo: FunVideo,
-                FunButton: FunButton,
             },
         }).mount('#app');
     </script>

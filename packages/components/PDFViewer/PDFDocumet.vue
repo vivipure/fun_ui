@@ -11,7 +11,7 @@ import elementResizeDetectorMaker from 'element-resize-detector'
 import { debounce } from '../../utils/help';
 
 defineOptions({
-    name: "PSDDocumet"
+    name: "PdfDocument"
 })
 interface PropsInterface {
     url: string
@@ -41,7 +41,6 @@ provide('clearRender', (render: Function) => {
 
 const updateChildrenPage = debounce(() => {
     pdfLoader.updateWrapper(wrapperRef.value)
-    console.log('change')
     pages.forEach(render => render())
 }, 300, false)
 

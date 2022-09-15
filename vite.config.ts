@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue(), DefineOptions()],
   build: {
     lib: {
-      entry: "packages/components/index.ts",
+      entry: "packages/index.ts",
       name: "funui",
       formats: ["umd", "iife"],
       fileName: "funui.js",

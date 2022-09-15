@@ -8,7 +8,7 @@
 import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
 import { PDFLoader } from './pdf';
 defineOptions({
-    name: "PSDPage",
+    name: "PdfPage",
 })
 interface PropsInterface {
     page: number

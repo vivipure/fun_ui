@@ -1,32 +1,11 @@
-<script  lang="ts">
-import debounce from '../packages/directives/debounce/index'
-
-export default {
-  directives: {
-    debounce
-  },
-  data() {
-    return {
-      a: 1
-    }
-  },
-  methods: {
-    haha() {
-      console.log(111)
-    }
-  },
-}
+<script  lang="ts" setup>
+const a = 1
 
 
 </script>
 
 <template>
-  <div class="pdf-container">
-    <button :type="a" v-debounce="() => haha()">test empty</button>
-    <button :type="a" v-debounce.immediate="() => haha()">test immediate</button>
-    <button :type="a" v-debounce.1000="() => haha()">test times</button>
-    <button :type="a" v-debounce:mouseover="() => haha()">test times</button>
-  </div>
+ <button>{{a}}</button>
 </template>
 
 <style>
@@ -38,5 +17,17 @@ export default {
 
 .pdf-container {
   width: 50%;
+  height: 300px;
+  position: relative;
+}
+
+
+.fun-loading-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .35);
 }
 </style>

@@ -2,7 +2,14 @@
 
 Vue 3 + TypeScript + Vite
 
+## components
 
-## TODO
-- [ ] Audio Componet
-- [ ] support WebComponet
+- [x] Video Player
+- [x] PDF Viewer
+- [ ] Audio Component
+
+## directives
+
+- [x] v-throttle
+- [x] v-debounce
+- [ ] v-loading

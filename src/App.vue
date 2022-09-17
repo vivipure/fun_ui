@@ -1,11 +1,20 @@
-<script  lang="ts" setup>
-const a = 1
+<script lang="ts" setup>
+import { ref } from "vue";
 
+import TransitionExpand from "../packages/components/TransitionExpand/Index.vue";
+const visible = ref(false);
 
+const toggleVisible = () => (visible.value = !visible.value);
 </script>
 
 <template>
- <button>{{a}}</button>
+  <div>
+    <button @click="toggleVisible">切换</button>
+
+    <TransitionExpand height="700px">
+      <div v-if="visible" class="contaienr" >1111</div>
+    </TransitionExpand>
+  </div>
 </template>
 
 <style>
@@ -14,20 +23,7 @@ const a = 1
   margin: 0;
   padding: 0;
 }
-
-.pdf-container {
-  width: 50%;
-  height: 300px;
-  position: relative;
-}
-
-
-.fun-loading-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .35);
+.contaienr {
+  background: #000;
 }
 </style>

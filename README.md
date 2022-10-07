@@ -1,4 +1,4 @@
-# FunUI
+# fun_ui
 
 Vue 3 + TypeScript + Vite
 
